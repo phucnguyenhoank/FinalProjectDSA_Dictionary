@@ -39,4 +39,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="PracticeWords.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="words - Copy.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="words.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

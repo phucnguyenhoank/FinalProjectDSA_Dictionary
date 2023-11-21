@@ -20,35 +20,42 @@ public:
 		std::cout << CSI << "0m";
 	}
 
+	// Applies only the foreground portion of the defaults
 	static void foregroundDefault() {
 		std::cout << CSI << "39m";
 	}
 
+	// Applies non-bold/bright red to foreground
 	static void foregroundRed(std::string s) {
 		std::cout << CSI << "31m" << s;
 		foregroundDefault();
 	}
 
+	// Applies bold/bright red to foreground
 	static void foregroundRedB(std::string s) {
 		std::cout << CSI << "91m" << s;
 		foregroundDefault();
 	}
 
+	// Applies bold/bright green to foreground
 	static void foregroundGreenB(std::string s) {
 		std::cout << CSI << "92m" << s;
 		foregroundDefault();
 	}
 
+	// Applies bold/bright yellow to foreground
 	static void foregroundYellowB(std::string s) {
 		std::cout << CSI << "93m" << s;
 		foregroundDefault();
 	}
 
+	// Applies bold/bright blue to foreground
 	static void foregroundBlueB(std::string s) {
 		std::cout << CSI << "94m" << s;
 		foregroundDefault();
 	}
 
+	// Applies bold/bright white to foreground
 	static void foregroundWhiteB(std::string s) {
 		std::cout << CSI << "97m" << s;
 		foregroundDefault();

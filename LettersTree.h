@@ -12,7 +12,6 @@ this class is a feature of the dictionary (EngVieDict.h)
 #include <fstream>
 
 
-
 class LettersTree {
 private:
 	// the key of the top node is 0
@@ -107,8 +106,8 @@ public:
 	// remove word from the tree
 	void remove(std::string word) {
 		if (!have(word)) return;
-		
-		char fir;				
+
+		char fir;
 		Node* nextNode = root;	// this pointer will point to the node (if present) representing the last letter of the word
 
 		// find the place
@@ -120,7 +119,7 @@ public:
 		}
 
 		// set 'makeSense' to false
-		nextNode->setSense(false);	
+		nextNode->setSense(false);
 	}
 
 	// ---------------------------------- CHECKING ----------------------------------
@@ -187,7 +186,7 @@ public:
 		// find the beginning node
 		Node* beginPoint = track(root, mean);
 		if (beginPoint == nullptr) return;
-		
+
 		// display if beginPoint make sense, because if it has, sweepWords function will not can display that word
 		if (beginPoint->getSense()) std::cout << mean << "\n";
 		sweepWords(beginPoint, mean);

@@ -69,13 +69,13 @@ public:
 		this->engMeaning = engMeaning;
 		this->vieMeaning = vieMeaning;
 	}
-	
+
 };
 
 // this class contains hash table which map english and its meanings
 class EngVieDict {
 private:
-	DynamicArray<Vocab*> *vocabs;
+	DynamicArray<Vocab*>* vocabs;
 	LettersTree* lettersTree;
 
 protected:
@@ -122,18 +122,17 @@ protected:
 		return prw;
 	}
 
-
 public:
-	
+
 	// --------------------------------------------- INITIALIZING --------------------------------------------
 
-	// read words from default source-word file: Words.txt
+	// read words from default source-word file: words.txt
 	EngVieDict() {
 		vocabs = new DynamicArray<Vocab*>();
 		vocabs->resize(DEFAULT_MAX_VOCAB);
 		lettersTree = new LettersTree();
 
-		std::ifstream fin("Words.txt");
+		std::ifstream fin("words.txt");
 		if (fin.fail()) return;
 
 		std::string temp;
@@ -202,7 +201,7 @@ public:
 		// BACKSPACE: 8
 		// SPACE: 32
 		// '\n': 10
-		
+
 		std::string userWord;
 		char userChar = 14; // just a valid num
 
@@ -210,13 +209,13 @@ public:
 			system("cls");
 			std::cout << "your word: " << userWord;
 			ConsoleEffect::saveCurrentCursor();
-			
+
 			std::cout << "\n";
 			std::cout << "---------------\n";
 			std::cout << "valid words:\n";
 			if (userWord.size()) lettersTree->sweepWords(userWord);
 			ConsoleEffect::loadSavedCursor();
-			
+
 			userChar = _getch();
 			if (userChar < 8 || userChar>122) continue;
 			else if (userChar == 8) {
@@ -230,7 +229,7 @@ public:
 			}
 
 		} while (userChar != 13);
-		
+
 		system("cls");
 		return userWord;
 	}
@@ -323,7 +322,7 @@ public:
 
 		std::cout << "English: ";
 		std::getline(std::cin, engWord);
-		while (!isAWord(engWord) || engWord.size()==0) {
+		while (!isAWord(engWord) || engWord.size() == 0) {
 			std::cout << "You haven\'t entered a word, try again: ";
 			std::getline(std::cin, engWord);
 		}
@@ -376,7 +375,7 @@ public:
 
 
 	// --------------------------------- REMOVE ---------------------------------------
-	
+
 	// 1: complete
 	// 2: don't have the wanted-word in the list
 	int removeWord(std::string engNeedToDelWord) {
@@ -420,10 +419,10 @@ public:
 	int removeFromPracticeList(std::string fileName) {
 		EngVieDict* practiceList = new EngVieDict(fileName);
 
-		if (practiceList->getNumOfWords()==0) return 0;
+		if (practiceList->getNumOfWords() == 0) return 0;
 
 		std::string userWord = practiceList->suggestWord();
-		
+
 		if (practiceList->haveWord(userWord)) practiceList->removeWord(userWord);
 		else return 2;
 

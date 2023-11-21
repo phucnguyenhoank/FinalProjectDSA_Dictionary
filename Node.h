@@ -12,7 +12,7 @@ This Node is a node in a letter tree (LettersTree.h)
 
 class Node {
 private:
-	DynamicArray<Node*> *letters;	// available children nodes
+	DynamicArray<Node*>* letters;	// available children nodes
 	char key;						// the letter of the Node, key = 0 means it has no letter
 	bool makeSense;					// sense = true if passed-letters, from the biggest father node to it, forms a word that has meaning	
 

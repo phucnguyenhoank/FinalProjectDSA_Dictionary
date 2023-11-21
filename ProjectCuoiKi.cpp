@@ -1,4 +1,3 @@
-
 #include "WordGame.h"
 
 int main() {
@@ -15,7 +14,7 @@ int main() {
 			int res = wg->addToPracticeList("PracticeWords.txt");
 			if (res == 1) ConsoleEffect::foregroundYellowB("Word added.\n");
 			else if (res == 2) ConsoleEffect::foregroundYellowB("Word already added.\n");
-			else if (res == 3) ConsoleEffect::foregroundYellowB("Sorry, that word isn\'t in our dictionary.\n");
+			else if (res == 3) ConsoleEffect::foregroundYellowB("Sorry, that word isn\'t in your practice list.\n");
 			else ConsoleEffect::foregroundRed("Adding word failed.\n");
 			std::cout << "-------------------------------------------------------------\n";
 		}
@@ -23,7 +22,7 @@ int main() {
 			system("cls");
 			int res = wg->removeFromPracticeList("PracticeWords.txt");
 			if (res == 1) ConsoleEffect::foregroundYellowB("Word removed.\n");
-			else if (res == 2) ConsoleEffect::foregroundYellowB("Sorry, that word isn\'t in our dictionary.\n");
+			else if (res == 2) ConsoleEffect::foregroundYellowB("Sorry, that word isn\'t in your practice list.\n");
 			else if (res == 0) ConsoleEffect::foregroundYellowB("Practice list is empty.\n");
 			else ConsoleEffect::foregroundRed("Removing word failed.\n");
 			std::cout << "-------------------------------------------------------------\n";
@@ -32,7 +31,7 @@ int main() {
 			system("cls");
 			int res = wg->addWord();
 			if (res == 1) ConsoleEffect::foregroundYellowB("Word added.\n");
-			else if (res == 2) ConsoleEffect::foregroundYellowB("The word already exists in the list.\n");
+			else if (res == 2) ConsoleEffect::foregroundYellowB("The word already exists.\n");
 			else ConsoleEffect::foregroundRed("Adding word failed.\n");
 		}
 		else if (userCommand.compare("5") == 0) {
@@ -79,7 +78,5 @@ int main() {
 	// save to file
 	wg->writeToFile("words.txt");
 
-
 	return 0;
 }
-

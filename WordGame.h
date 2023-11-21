@@ -7,10 +7,10 @@ This class is a dictionary with games
 #pragma once
 
 #include "EngVieDict.h"
-class WordGame: public EngVieDict {
+class WordGame : public EngVieDict {
 private:
 	//                                          -------------- HIDING WORDS GAME ---------------
-	
+
 	//
 	// read the list of words
 	// return a pointer which has DynamicArray<Vocab*>* type
@@ -345,16 +345,16 @@ public:
 			std::cout << "Don\'t have enough words in the practice list to play.\n";
 			return;
 		}
-		
+
 		// get randomly the words from the main list we have read
 		std::random_device rd;
 		std::mt19937 ge(rd());
-		std::uniform_int_distribution<int> dis(0, practiceWords->getSize()-1);
-		
+		std::uniform_int_distribution<int> dis(0, practiceWords->getSize() - 1);
+
 		// create a marked-array, haveTaken[i] is true if the postion i of the main list have been taken before
 		bool* haveTaken = new bool[practiceWords->getSize()];
 		// since all positions haven't been taken, so
-		std::memset(haveTaken, false, practiceWords->getSize()*sizeof(bool));
+		std::memset(haveTaken, false, practiceWords->getSize() * sizeof(bool));
 		// start getting data for playing
 		for (int i = 0; i < playWordsList->getSize(); i++) {
 			int gettingPosition = dis(ge);
